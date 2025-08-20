@@ -14,6 +14,7 @@ class Student(Man):
 student1 = Student("නිපුන්")
 student1.speak()     # උරුම වුණ ක්‍රියාව
 student1.study()
+
 student2 = Student("ජයනි")
 student2.speak()     # උරුම වුණ ක්‍රියාව
 student2.study()     # තමන්ගෙම ක්‍රියාව
