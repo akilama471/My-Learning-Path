@@ -21,3 +21,25 @@ Constraints:
 
 1 <= arr.length <= 1000
 -1000 <= arr[i] <= 1000
+
+#go
+func uniqueOccurrences(arr []int) bool {
+    
+}
+
+#python3
+func uniqueOccurrences(arr []int) bool {
+    
+}
+
+#php
+class Solution {
+
+    /**
+     * @param Integer[] $arr
+     * @return Boolean
+     */
+    function uniqueOccurrences($arr) {
+        
+    }
+}
