@@ -45,28 +45,14 @@ class Solution {
      * @return ListNode
      */
     function reverseList($head) {
-        
+        $prev = null;
+        $curr = $head;
+        while ($curr !== null) {
+            $next = $curr->next;
+            $curr->next = $prev;
+            $prev = $curr;
+            $curr = $next;
+        }
+        return $prev;
     }
-}
-
-#python3
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
-
-#go        
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-func reverseList(head *ListNode) *ListNode {
-    
 }
