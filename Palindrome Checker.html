@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Palindrome Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      padding: 0.6rem;
+      width: 80%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #result {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Palindrome Checker</h1>
+    <input type="text" id="text-input" placeholder="Enter text..."/>
+    <br/>
+    <button id="check-btn">Check</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const input = document.getElementById("text-input");
+    const button = document.getElementById("check-btn");
+    const result = document.getElementById("result");
+
+    function cleanText(str) {
+      // Remove non-alphanumeric and make lowercase
+      return str.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    }
+
+    function isPalindrome(str) {
+      const cleaned = cleanText(str);
+      return cleaned === cleaned.split("").reverse().join("");
+    }
+
+    button.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (text === "") {
+        alert("Please input a value");
+        return;
+      }
+
+      if (isPalindrome(text)) {
+        result.textContent = `${text} is a palindrome`;
+      } else {
+        result.textContent = `${text} is not a palindrome`;
+      }
+    });
+  </script>
+</body>
+</html>
