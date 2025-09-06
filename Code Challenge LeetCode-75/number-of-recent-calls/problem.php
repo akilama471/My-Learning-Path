@@ -1,3 +1,6 @@
+<?php
+
+/*
 You have a RecentCounter class which counts the number of recent requests within a certain time frame.
 
 Implement the RecentCounter class:
@@ -30,58 +33,31 @@ Constraints:
 Each test case will call ping with strictly increasing values of t.
 At most 104 calls will be made to ping.
 
-#python3
-class RecentCounter:
 
-    def __init__(self):
-        
-
-    def ping(self, t: int) -> int:
-        
-
-
-# Your RecentCounter object will be instantiated and called as such:
-# obj = RecentCounter()
-# param_1 = obj.ping(t)
-
-#go
-type RecentCounter struct {
-    
-}
-
-
-func Constructor() RecentCounter {
-    
-}
-
-
-func (this *RecentCounter) Ping(t int) int {
-    
-}
-
-
-/**
  * Your RecentCounter object will be instantiated and called as such:
  * obj := Constructor();
  * param_1 := obj.Ping(t);
  */
 
- #php
- class RecentCounter {
-    /**
-     */
+class RecentCounter {
+    private $requests;
+
     function __construct() {
-        
+        $this->requests = [];
     }
-  
-    /**
-     * @param Integer $t
-     * @return Integer
-     */
+
     function ping($t) {
-        
+        $this->requests[] = $t;
+
+        // Remove old requests (front of array)
+        while ($this->requests[0] < $t - 3000) {
+            array_shift($this->requests);
+        }
+
+        return count($this->requests);
     }
 }
+
 
 /**
  * Your RecentCounter object will be instantiated and called as such:
