@@ -23,17 +23,19 @@ Constraints:
 1 <= arr.length <= 1000
 -1000 <= arr[i] <= 1000
 */
-func uniqueOccurrences(arr []int) bool {
-    count := make(map[int]int)
-    for _, num := range arr {
-        count[num]++
-    }
-    seen := make(map[int]bool)
-    for _, freq := range count {
-        if seen[freq] {
-            return false
+impl Solution {
+    pub fn unique_occurrences(arr: Vec<i32>) -> bool {
+        use std::collections::{HashMap, HashSet};
+        let mut map = HashMap::new();
+        for &num in &arr {
+            *map.entry(num).or_insert(0) += 1;
         }
-        seen[freq] = true
+        let mut set = HashSet::new();
+        for &count in map.values() {
+            if !set.insert(count) {
+                return false;
+            }
+        }
+        true       
     }
-    return true
 }

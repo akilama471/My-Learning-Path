@@ -1,3 +1,4 @@
+/*
 Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
 
  
@@ -21,25 +22,20 @@ Constraints:
 
 1 <= arr.length <= 1000
 -1000 <= arr[i] <= 1000
-
-#go
-func uniqueOccurrences(arr []int) bool {
-    
-}
-
-#python3
-func uniqueOccurrences(arr []int) bool {
-    
-}
-
-#php
+*/
 class Solution {
-
-    /**
-     * @param Integer[] $arr
-     * @return Boolean
-     */
-    function uniqueOccurrences($arr) {
-        
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> count;
+        for (int num : arr) {
+            count[num]++;
+        }
+        unordered_set<int> seen;
+        for (const auto& [_, freq] : count) {
+            if (!seen.insert(freq).second) {
+                return false;
+            }
+        }
+        return true;
     }
-}
+};
